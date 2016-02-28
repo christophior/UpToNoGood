@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>christophior</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="I solemnly swear that I am up to no good." />
+	<link rel="stylesheet" type="text/css" href="component.css" />
+	<link rel="stylesheet" type="text/css" href="demo.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="fs-form-wrap" id="fs-form-wrap">
+			<form id="myform" class="fs-form fs-form-full" autocomplete="off">
+				<ol class="fs-fields">
+					<li class="fs-current">
+						<label class="fs-field-label fs-anim-upper" for="secret">
+							{?feedback}
+								{feedback}
+							{:else}
+								I solemnly swear that I am up to no good.
+							{/feedback}
+						</label>
+						<input class="fs-anim-lower" id="secret" name="secret" type="text" placeholder="enter your secrets...">
+					</li>
+				</ol>
+			</form>
+			<div class="fs-controls">
+				<button class="fs-continue fs-show">Continue</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
