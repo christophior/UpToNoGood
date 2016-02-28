@@ -10,7 +10,8 @@ var express  = require('express'),
 	moment = require('moment'),
 	Spotify = require('yfitops-web'),
 	terminal = require('child_process').spawn('bash'),
-	command = require('./config').command;
+	command = require('./config').command,
+	spotifyUri = require('spotify-uri');
 
 // Dustjs settings
 dust._.optimizers.format = function (ctx, node) {
@@ -38,6 +39,11 @@ app.get('/', function(req, res) {
 		console.log('******');
 		console.log('secret entered: ' + secrets);
 		console.log('******');
+
+		if (secrets.indexOf('open.spotify.com') > -1) {
+			var parsed = spotifyUri.parse(secrets);
+			secrets = spotifyUri.formatURI(parsed);
+		}
 
 		try {
 			uriType = Spotify.uriType(secrets);
