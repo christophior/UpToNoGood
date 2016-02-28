@@ -48,8 +48,9 @@ app.get('/', function(req, res) {
 		
 		if (uriType) {
 			console.log('************************************************************************');
-			terminal.stdin.write(command + ' ' + secrets + '\n');
-			terminal.stdin.end();
+			terminal.stdin.write(command + ' ' + secrets + '\n', function(err) {
+				terminal.stdin.end();
+			});
 		}
 	}
 
