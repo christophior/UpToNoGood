@@ -30,12 +30,12 @@ app.get('/', function(req, res) {
 
 		secrets = sanitizer.sanitize(secrets);
 
-	console.log('******');
-	console.log('secret entered: ' + secrets);
-	console.log('******');
-
 	if (secrets){
 		var uriType;
+
+		console.log('******');
+		console.log('secret entered: ' + secrets);
+		console.log('******');
 
 		try {
 			uriType = Spotify.uriType(secrets);
