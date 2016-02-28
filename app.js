@@ -7,6 +7,7 @@ var express  = require('express'),
 	port = process.env.PORT || 8080,
 	dust = require('express-dustjs'),
 	sanitizer = require('sanitizer'),
+	moment = require('moment'),
 	Spotify = require('yfitops-web'),
 	terminal = require('child_process').spawn('bash'),
 	command = require('./config').command;
@@ -25,6 +26,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'static')));
 
 app.get('/', function(req, res) {
+	console.log('Page view at ' + moment().toLocaleString());
 	var info = {},
 		secrets = req.query && req.query.secret;
 
